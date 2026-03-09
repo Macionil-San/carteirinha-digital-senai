@@ -22,6 +22,9 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize()
                 ) { innerPadding ->
+                    CarteirinhaView(modifier = Modifier
+                        .padding(paddingValues = innerPadding)
+                        .fillMaxSize())
 
                 }
             }
