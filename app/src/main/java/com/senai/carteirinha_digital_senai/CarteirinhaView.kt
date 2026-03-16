@@ -91,9 +91,9 @@ fun CarteirinhaView(modifier: Modifier = Modifier) {
                 )
             }
 
-            // ── FOTO DE PERFIL ──
+            // FOTO DE PERFIL
             Box(contentAlignment = Alignment.Center) {
-                // Anel externo brilhante animado
+
                 val infiniteTransition = rememberInfiniteTransition(label = "ring")
                 val angle by infiniteTransition.animateFloat(
                     initialValue = 0f,
@@ -175,7 +175,7 @@ fun CarteirinhaView(modifier: Modifier = Modifier) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clip(RoundedCornerShape(15.dp))
+                    .clip(RoundedCornerShape(39.dp))
                     .background(
                         Brush.linearGradient(
                             colors = listOf(
