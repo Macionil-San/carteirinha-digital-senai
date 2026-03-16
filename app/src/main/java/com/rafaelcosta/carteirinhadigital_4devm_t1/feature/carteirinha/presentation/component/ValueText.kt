@@ -22,8 +22,7 @@ fun ValueText(
         fontWeight = fontWeight,
         fontFamily = MaterialTheme.typography.titleLarge.fontFamily,
         lineHeight = MaterialTheme.typography.titleLarge.lineHeight,
-        modifier = modifier
-            .padding(start = 8.dp),
+        modifier = modifier,
         softWrap = true,
         color = MaterialTheme.colorScheme.onSurface
     )

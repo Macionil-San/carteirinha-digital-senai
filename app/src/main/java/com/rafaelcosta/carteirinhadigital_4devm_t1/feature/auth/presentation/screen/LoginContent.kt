@@ -1,17 +1,15 @@
-package com.rafaelcosta.carteirinhadigital_4devm_t1.feature.auth.presentation
+package com.rafaelcosta.carteirinhadigital_4devm_t1.feature.auth.presentation.screen
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -22,9 +20,18 @@ import androidx.compose.ui.unit.dp
 import com.rafaelcosta.carteirinhadigital_4devm_t1.core.designsystem.theme.CarteirinhaDigital_4DEVM_T1Theme
 
 @Composable
-fun LoginView(modifier: Modifier = Modifier) {
+fun LoginContent(
+    modifier: Modifier = Modifier,
+    login: String = "",
+    senha: String = "",
+    onLoginChange: (String) -> Unit = {},
+    onSenhaChange: (String) -> Unit ={},
+    onLoginClick: () -> Unit = {}
+) {
     Column(
-        modifier = modifier,
+        modifier = modifier
+            .fillMaxSize()
+            .safeDrawingPadding(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(
             space = 16.dp,
@@ -32,24 +39,24 @@ fun LoginView(modifier: Modifier = Modifier) {
         )
     ) {
         TextField(
-            value = "",
-            onValueChange = {},
+            value = login,
+            onValueChange = onLoginChange,
             label = {
                 Text("Login")
-            },
+            }
         )
-        OutlinedTextField(
-            value = "",
-            onValueChange = {},
+
+        TextField(
+            value = senha,
+            onValueChange = onSenhaChange,
             label = {
                 Text("Senha")
-            },
+            }
         )
 
         Button(
-            onClick = {},
-            modifier=Modifier
-                .fillMaxWidth(.6f),
+            onClick = onLoginClick,
+            modifier = Modifier.fillMaxWidth(0.6f),
             shape = RoundedCornerShape(size = 9.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = MaterialTheme.colorScheme.background
@@ -58,12 +65,6 @@ fun LoginView(modifier: Modifier = Modifier) {
                 2.dp,
                 MaterialTheme.colorScheme.primary
             )
-
-        ) {
-            Text("Entrar")
-        }
-        OutlinedButton(
-            onClick = {}
         ) {
             Text("Entrar")
         }
@@ -75,13 +76,9 @@ fun LoginView(modifier: Modifier = Modifier) {
     showSystemUi = true
 )
 @Composable
-fun PreviewLoginClaro() {
+fun PreviewLoginContentClaro() {
     CarteirinhaDigital_4DEVM_T1Theme(darkTheme = false) {
-        LoginView(
-            modifier = Modifier
-                .padding(16.dp)
-                .fillMaxSize()
-        )
+        LoginContent( )
     }
 }
 
@@ -90,13 +87,8 @@ fun PreviewLoginClaro() {
     showSystemUi = true
 )
 @Composable
-fun PreviewLoginEscuro() {
+fun PreviewLoginContentEscuro() {
     CarteirinhaDigital_4DEVM_T1Theme(darkTheme = true) {
-       LoginView(
-           modifier = Modifier
-               .padding(16.dp)
-               .fillMaxSize()
-       )
+        LoginContent( )
     }
 }
-
